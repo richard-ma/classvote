@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def get_ip_of_machine()
-    User.find(session[:user_id[)
+    User.find(session[:user_id]).ip
   end
 end

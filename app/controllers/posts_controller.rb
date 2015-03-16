@@ -25,8 +25,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = session[:user_id] # author
+    @post.prev_post_id = nil # previous post
+    @post.next_post_id = nil # next post
 
     respond_to do |format|
+      #setting author
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }

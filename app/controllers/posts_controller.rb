@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :enable, :disable]
 
   # GET /posts
   # GET /posts.json
@@ -65,6 +65,22 @@ class PostsController < ApplicationController
     end
   end
 
+  # GET /posts/enable/1
+  def enable
+    @post.enable
+    @post.save
+
+    redirect_to posts_url
+  end
+
+  # GET /posts/disable/1
+  def disable
+    @post.disable
+    @post.save
+
+    redirect_to posts_url
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

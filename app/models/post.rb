@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
 
+  has_attached_file :media
+
   def enabled?
     self.post_enabled
   end

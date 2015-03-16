@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/login'
+
   resources :comments
 
   resources :posts

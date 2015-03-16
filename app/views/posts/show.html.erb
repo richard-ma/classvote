@@ -32,13 +32,13 @@
     <%= f.text_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '发表评论' %>
   </div>
 <% end %>
 </div>
 
 <div>
-  <strong>Comments:</strong>
+  <strong>同学们的评论:</strong>
   <% @post.comments.each do |comment| %>
     <div>
     <%= comment.content %>

@@ -11,7 +11,7 @@ module ApplicationHelper
   def is_admin?
     # TODO move this to config file
     admin_ip = [
-      '127.0.0.1',
+      #'127.0.0.1',
       '192.168.1.230',
       '192.168.1.110',
     ]

@@ -11,7 +11,7 @@
   <% if is_admin? %>
   <h1>管理员驾到!!</h1>
   <% end %>
-  <h4><%= "第#{get_number_of_machine}号机器，欢迎你登录！  你的IP地址是：#{get_ip_of_machine}" %></h4>
+  <h2><%= "#{get_number_of_machine}号机器，欢迎你登录！  你的IP地址是：#{get_ip_of_machine}" %> <%= link_to '回到首页', root_url %></h2>
 
 <%= yield %>
 

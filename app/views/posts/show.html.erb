@@ -1,26 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @post.title %>
-</p>
+</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.ip %>
-</p>
-
-<p>
-  <strong>Content:</strong>
+<div>
   <%= @post.content %>
-</p>
+</div>
 
-<p>
+<div>
   <object width="600" height="480" type="application/x-shockwave-flash" data="<%= generate_direct_link @post.media.url %>"></object>
-</p>
+</div>
 
-
-<p>
+<div>
 <% comment = Comment.new %>
 <%= form_for(comment) do |f| %>
   <% if comment.errors.any? %>
@@ -43,14 +35,21 @@
     <%= f.submit %>
   </div>
 <% end %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Comments:</strong>
   <% @post.comments.each do |comment| %>
+    <div>
     <%= comment.content %>
+    <% if is_admin? %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </div>
   <% end %>
-</p>
+</div>
 
+<% if is_admin? %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+<% end %>

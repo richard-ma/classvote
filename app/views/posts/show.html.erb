@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Media:</strong>
+  <%= "http://#{server_ip}:#{server_port}#{@post.media.url}" %>
+</p>
+
+<p>
 <% comment = Comment.new %>
 <%= form_for(comment) do |f| %>
   <% if comment.errors.any? %>

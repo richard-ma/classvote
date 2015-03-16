@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :media
+  do_not_validate_attachment_file_type :media
 
   def enabled?
     self.post_enabled

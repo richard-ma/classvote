@@ -16,9 +16,9 @@
 </p>
 
 <p>
-  <strong>Media:</strong>
-  <%= generate_direct_link @post.media.url %>
+  <object width="600" height="480" type="application/x-shockwave-flash" data="<%= generate_direct_link @post.media.url %>"></object>
 </p>
+
 
 <p>
 <% comment = Comment.new %>

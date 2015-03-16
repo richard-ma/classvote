@@ -13,6 +13,7 @@
 </div>
 
 <div>
+  <h2>评论留言:</h2>
 <% comment = Comment.new %>
 <%= form_for(comment) do |f| %>
   <% if comment.errors.any? %>
@@ -29,7 +30,7 @@
 
   <div class="field">
     <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, style: "width:600px; height:100px;" %>
   </div>
   <div class="actions">
     <%= f.submit '发表评论' %>
@@ -38,15 +39,29 @@
 </div>
 
 <div>
-  <strong>同学们的评论:</strong>
+  <h2>同学们的评论:</h2>
+  <table>
+  </tbody>
   <% @post.comments.each do |comment| %>
-    <div>
+    <tr>
+    <td>
+    <%= comment.user.ip %>
+    在
+    <%= comment.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s %>
+    说：
+    </td>
+    <td>
     <%= comment.content %>
+    </td>
     <% if is_admin? %>
+    <td>
         <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
     <% end %>
-    </div>
+    </tr>
   <% end %>
+  </tbody>
+  </table>
 </div>
 
 <% if is_admin? %>

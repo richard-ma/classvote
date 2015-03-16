@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316025740) do
+ActiveRecord::Schema.define(version: 20150316142817) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -24,12 +24,16 @@ ActiveRecord::Schema.define(version: 20150316025740) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
     t.integer  "prev_post_id"
     t.integer  "next_post_id"
-    t.boolean  "post_enabled", default: false
+    t.boolean  "post_enabled",       default: false
+    t.string   "media_file_name"
+    t.string   "media_content_type"
+    t.integer  "media_file_size"
+    t.datetime "media_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

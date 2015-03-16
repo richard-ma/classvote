@@ -7,4 +7,15 @@ module ApplicationHelper
   def get_ip_of_machine()
     User.find(session[:user_id]).ip
   end
+
+  def is_admin?()
+    # TODO move this to config file
+    admin_ip = [
+      '127.0.0.1',
+      '192.168.1.230',
+      '192.168.1.110',
+    ]
+
+    true if admin_ip.include? get_ip_of_machine
+  end
 end

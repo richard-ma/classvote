@@ -8,6 +8,9 @@
 </head>
 <body>
 <center>
+  <% if is_admin? %>
+  <h1>管理员驾到!!</h1>
+  <% end %>
 
 <%= yield %>
 

@@ -26,4 +26,8 @@ module ApplicationHelper
   def server_port
     '3000'
   end
+
+  def generate_direct_link link
+    "http://#{server_ip}:#{server_port}#{link}"
+  end
 end

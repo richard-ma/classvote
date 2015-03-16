@@ -17,7 +17,7 @@
 
 <p>
   <strong>Media:</strong>
-  <%= "http://#{server_ip}:#{server_port}#{@post.media.url}" %>
+  <%= generate_direct_link @post.media.url %>
 </p>
 
 <p>
